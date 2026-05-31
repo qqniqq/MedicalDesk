@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Data\DbConnectionFactory.cs" />
     <Compile Include="Enums\EquipmentStatus.cs" />
     <Compile Include="Enums\RequestStatus.cs" />
     <Compile Include="Enums\UserRole.cs" />
@@ -120,7 +121,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constants\" />
-    <Folder Include="Data\" />
     <Folder Include="DTO\" />
     <Folder Include="Helpers\" />
     <Folder Include="Interfaces\" />
