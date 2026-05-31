@@ -123,6 +123,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Themes\AppTheme.cs" />
     <Compile Include="Themes\LightTheme.cs" />
+    <EmbeddedResource Include="Forms\Auth\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
