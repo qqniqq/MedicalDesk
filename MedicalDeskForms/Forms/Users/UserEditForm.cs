@@ -11,6 +11,7 @@ using MedicalDeskLib.Enums;
 using MedicalDeskLib.Models;
 using MedicalDeskLib.Repositories;
 using MedicalDeskLib.Security;
+using MedicalDeskLib.Validation;
 
 namespace MedicalDeskForms.Forms.Users
 {
@@ -27,6 +28,18 @@ namespace MedicalDeskForms.Forms.Users
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            string validationResult =
+    UserValidator.Validate(
+        txtFullName.Text,
+        txtLogin.Text,
+        txtPassword.Text);
+
+            if (validationResult != null)
+            {
+                MessageBox.Show(validationResult);
+
+                return;
+            }
             User user = new User();
 
             user.FullName =

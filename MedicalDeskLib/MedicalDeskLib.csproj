@@ -118,10 +118,13 @@
     <Compile Include="Models\RequestHistory.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EquipmentRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Security\PasswordHasher.cs" />
     <Compile Include="Security\SessionManager.cs" />
     <Compile Include="Services\AuthService.cs" />
+    <Compile Include="Validation\EquipmentValidator.cs" />
+    <Compile Include="Validation\UserValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constants\" />
@@ -130,7 +133,6 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Notifications\" />
     <Folder Include="Reports\" />
-    <Folder Include="Validation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

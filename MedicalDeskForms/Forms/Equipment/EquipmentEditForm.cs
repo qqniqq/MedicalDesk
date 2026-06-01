@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedicalDeskLib.Enums;
+using MedicalDeskLib.Models;
+using MedicalDeskLib.Repositories;
+using MedicalDeskLib.Validation;
 
 namespace MedicalDeskForms.Forms.Equipment
 {

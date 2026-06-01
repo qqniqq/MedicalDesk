@@ -126,6 +126,12 @@
     <EmbeddedResource Include="Forms\Auth\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Equipment\EquipmentEditForm.resx">
+      <DependentUpon>EquipmentEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Equipment\EquipmentListForm.resx">
+      <DependentUpon>EquipmentListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
