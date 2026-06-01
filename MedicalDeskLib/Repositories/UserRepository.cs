@@ -105,5 +105,6 @@ namespace MedicalDeskLib.Repositories
                 command.ExecuteNonQuery();
             }
         }
+
     }
 }

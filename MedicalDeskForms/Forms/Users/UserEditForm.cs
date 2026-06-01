@@ -56,7 +56,7 @@ namespace MedicalDeskForms.Forms.Users
             MessageBox.Show(
                 "Пользователь создан");
 
-            Close();
+            
         }
     }
 }
