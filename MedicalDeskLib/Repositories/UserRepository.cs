@@ -48,5 +48,62 @@ namespace MedicalDeskLib.Repositories
             }
             return users;
         }
+        public void Add(User user)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                @"INSERT INTO Users
+        (
+            Login,
+            PasswordHash,
+            FullName,
+            Role,
+            CreatedAt,
+            IsActive
+        )
+        VALUES
+        (
+            @Login,
+            @PasswordHash,
+            @FullName,
+            @Role,
+            @CreatedAt,
+            @IsActive
+        )";
+
+                MySqlCommand command =
+                    new MySqlCommand(query, connection);
+
+                command.Parameters.AddWithValue(
+                    "@Login",
+                    user.Login);
+
+                command.Parameters.AddWithValue(
+                    "@PasswordHash",
+                    user.PasswordHash);
+
+                command.Parameters.AddWithValue(
+                    "@FullName",
+                    user.FullName);
+
+                command.Parameters.AddWithValue(
+                    "@Role",
+                    user.Role);
+
+                command.Parameters.AddWithValue(
+                    "@CreatedAt",
+                    user.CreatedAt);
+
+                command.Parameters.AddWithValue(
+                    "@IsActive",
+                    user.IsActive);
+
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

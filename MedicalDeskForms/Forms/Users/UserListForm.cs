@@ -16,5 +16,13 @@ namespace MedicalDeskForms.Forms.Users
         {
             InitializeComponent();
         }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            UserEditForm form =
+    new UserEditForm();
+
+            form.ShowDialog();
+        }
     }
 }
