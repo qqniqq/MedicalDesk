@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MedicalDeskForms.Forms.Equipment;
 
 
 
@@ -68,6 +69,14 @@ namespace MedicalDeskForms.Forms.Main
         {
             UserListForm form =
     new UserListForm();
+
+            form.ShowDialog();
+        }
+
+        private void btnEquipment_Click(object sender, EventArgs e)
+        {
+            EquipmentListForm form =
+                new EquipmentListForm();
 
             form.ShowDialog();
         }

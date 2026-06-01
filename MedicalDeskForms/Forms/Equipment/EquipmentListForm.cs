@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MedicalDeskLib.Repositories;
+using MedicalDeskForms.Forms.Equipment;
 
 namespace MedicalDeskForms.Forms.Equipment
 {
@@ -25,10 +26,21 @@ namespace MedicalDeskForms.Forms.Equipment
 
             dgvEquipment.DataSource =
                 repository.GetAll();
+
         }
 
         private void btnRefreshEquipment_Click(object sender, EventArgs e)
         {
+            LoadEquipment();
+        }
+
+        private void btnAddEquipment_Click(object sender, EventArgs e)
+        {
+            EquipmentEditForm form =
+                   new EquipmentEditForm();
+
+            form.ShowDialog();
+
             LoadEquipment();
         }
     }

@@ -90,6 +90,7 @@
             this.btnEquipment.TabIndex = 1;
             this.btnEquipment.Text = "Оборудования";
             this.btnEquipment.UseVisualStyleBackColor = true;
+            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
             // 
             // btnRequests
             // 

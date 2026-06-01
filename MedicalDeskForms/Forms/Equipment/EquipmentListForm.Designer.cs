@@ -44,7 +44,7 @@
             this.dgvEquipment.RowHeadersWidth = 51;
             this.dgvEquipment.RowTemplate.Height = 24;
             this.dgvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEquipment.Size = new System.Drawing.Size(487, 292);
+            this.dgvEquipment.Size = new System.Drawing.Size(1127, 402);
             this.dgvEquipment.TabIndex = 0;
             // 
             // btnAddEquipment
@@ -56,6 +56,7 @@
             this.btnAddEquipment.TabIndex = 1;
             this.btnAddEquipment.Text = "Добавить";
             this.btnAddEquipment.UseVisualStyleBackColor = true;
+            this.btnAddEquipment.Click += new System.EventHandler(this.btnAddEquipment_Click);
             // 
             // btnRefreshEquipment
             // 
@@ -72,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1439, 450);
             this.Controls.Add(this.btnRefreshEquipment);
             this.Controls.Add(this.btnAddEquipment);
             this.Controls.Add(this.dgvEquipment);
