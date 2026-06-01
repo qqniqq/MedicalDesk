@@ -105,6 +105,62 @@ namespace MedicalDeskLib.Repositories
                 command.ExecuteNonQuery();
             }
         }
+        public void SetActive(int userId, bool isActive)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                    @"UPDATE Users
+              SET IsActive = @IsActive
+              WHERE Id = @Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(query, connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    userId);
+
+                command.Parameters.AddWithValue(
+                    "@IsActive",
+                    isActive);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+        //сброс пароля
+        public void ResetPassword(
+    int userId,
+    string passwordHash)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                    @"UPDATE Users
+              SET PasswordHash=@PasswordHash
+              WHERE Id=@Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(query, connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    userId);
+
+                command.Parameters.AddWithValue(
+                    "@PasswordHash",
+                    passwordHash);
+
+                command.ExecuteNonQuery();
+            }
+        }
 
     }
 }

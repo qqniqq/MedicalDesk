@@ -32,6 +32,7 @@
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.btnResetPassword = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnBlockUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             this.btnResetPassword.TabIndex = 2;
             this.btnResetPassword.Text = "Сбросить пароль";
             this.btnResetPassword.UseVisualStyleBackColor = true;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
             // 
             // btnRefresh
             // 
@@ -81,11 +83,23 @@
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
+            // btnBlockUser
+            // 
+            this.btnBlockUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnBlockUser.Location = new System.Drawing.Point(12, 136);
+            this.btnBlockUser.Name = "btnBlockUser";
+            this.btnBlockUser.Size = new System.Drawing.Size(177, 35);
+            this.btnBlockUser.TabIndex = 4;
+            this.btnBlockUser.Text = "Блокировать";
+            this.btnBlockUser.UseVisualStyleBackColor = true;
+            this.btnBlockUser.Click += new System.EventHandler(this.btnBlockUser_Click);
+            // 
             // UserListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1271, 726);
+            this.Controls.Add(this.btnBlockUser);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnResetPassword);
             this.Controls.Add(this.dgvUsers);
@@ -103,5 +117,6 @@
         private System.Windows.Forms.DataGridView dgvUsers;
         private System.Windows.Forms.Button btnResetPassword;
         private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.Button btnBlockUser;
     }
 }
