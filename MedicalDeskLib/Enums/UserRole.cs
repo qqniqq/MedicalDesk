@@ -9,7 +9,7 @@ namespace MedicalDeskLib.Enums
     public enum UserRole
     {
         User = 1,
-        Technican = 2,
+        Technician = 2,
         Administrator = 3
     }
 }

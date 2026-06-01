@@ -82,12 +82,13 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Войти";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblError
             // 
             this.lblError.AutoSize = true;
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(267, 242);
+            this.lblError.Location = new System.Drawing.Point(218, 243);
             this.lblError.Name = "lblError";
             this.lblError.Size = new System.Drawing.Size(44, 16);
             this.lblError.TabIndex = 5;
