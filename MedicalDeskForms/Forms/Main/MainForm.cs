@@ -1,4 +1,6 @@
-﻿using MedicalDeskForms.Forms.Users;
+﻿using MedicalDeskForms.Forms.Equipment;
+using MedicalDeskForms.Forms.Requests;
+using MedicalDeskForms.Forms.Users;
 using MedicalDeskLib.Enums;
 using MedicalDeskLib.Repositories;
 using MedicalDeskLib.Security;
@@ -11,7 +13,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MedicalDeskForms.Forms.Equipment;
 
 
 
@@ -77,6 +78,14 @@ namespace MedicalDeskForms.Forms.Main
         {
             EquipmentListForm form =
                 new EquipmentListForm();
+
+            form.ShowDialog();
+        }
+
+        private void btnRequests_Click(object sender, EventArgs e)
+        {
+            RequestListForm form =
+    new RequestListForm();
 
             form.ShowDialog();
         }

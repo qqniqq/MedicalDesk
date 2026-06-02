@@ -39,6 +39,9 @@ namespace MedicalDeskLib.Repositories
 
                     user.FullName =
                         reader.GetString("FullName");
+                    user.Phone =
+                    reader["Phone"]
+                    .ToString();
 
                     user.Role =
                         reader.GetInt32("Role");
@@ -60,26 +63,31 @@ namespace MedicalDeskLib.Repositories
 
                 string query =
                 @"INSERT INTO Users
-        (
-            Login,
-            PasswordHash,
-            FullName,
-            Role,
-            CreatedAt,
-            IsActive
-        )
-        VALUES
-        (
-            @Login,
-            @PasswordHash,
-            @FullName,
-            @Role,
-            @CreatedAt,
-            @IsActive
-        )";
+                (
+                Login,
+                PasswordHash,
+                FullName,
+                Phone,
+                Role,
+                IsActive,
+                CreatedAt
+                )
+                VALUES
+                (
+                @Login,
+                @PasswordHash,
+                @FullName,
+                @Phone,
+                @Role,
+                @IsActive,
+                @CreatedAt
+                )";
 
                 MySqlCommand command =
                     new MySqlCommand(query, connection);
+                command.Parameters.AddWithValue(
+                    "@Phone",
+                    user.Phone);
 
                 command.Parameters.AddWithValue(
                     "@Login",
@@ -177,7 +185,8 @@ namespace MedicalDeskLib.Repositories
             {
                 UserGridDto item =
                     new UserGridDto();
-
+                item.Phone =
+    user.Phone;
                 item.Id =
                     user.Id;
 

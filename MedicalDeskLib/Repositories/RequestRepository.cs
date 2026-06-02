@@ -5,6 +5,8 @@ using MedicalDeskLib.Data;
 using MedicalDeskLib.Models;
 
 using MySql.Data.MySqlClient;
+using MedicalDeskLib.DTO;
+using MedicalDeskLib.Helpers;
 
 namespace MedicalDeskLib.Repositories
 {
@@ -164,6 +166,39 @@ namespace MedicalDeskLib.Repositories
                 return Convert.ToInt32(
                     command.ExecuteScalar());
             }
+        }
+        //получение данных для grid
+        public List<RequestGridDto> GetGridData()
+        {
+            List<RequestGridDto> result =
+                new List<RequestGridDto>();
+
+            List<Request> requests =
+                GetAll();
+
+            foreach (Request request in requests)
+            {
+                RequestGridDto item =
+                    new RequestGridDto();
+
+                item.RequestNumber =
+                    request.RequestNumber;
+
+                item.Description =
+                    request.Description;
+
+                item.Status =
+                    RequestStatusHelper
+                    .GetStatusName(
+                        request.Status);
+
+                item.CreatedAt =
+                    request.CreatedAt;
+
+                result.Add(item);
+            }
+
+            return result;
         }
     }
 }

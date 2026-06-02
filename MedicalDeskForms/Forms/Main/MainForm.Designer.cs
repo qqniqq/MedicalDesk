@@ -30,14 +30,14 @@
         {
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.panelContent = new System.Windows.Forms.Panel();
-            this.btnDashboard = new System.Windows.Forms.Button();
-            this.btnEquipment = new System.Windows.Forms.Button();
-            this.btnRequests = new System.Windows.Forms.Button();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.btnReports = new System.Windows.Forms.Button();
-            this.btnSettings = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnReports = new System.Windows.Forms.Button();
+            this.btnUsers = new System.Windows.Forms.Button();
+            this.btnRequests = new System.Windows.Forms.Button();
+            this.btnEquipment = new System.Windows.Forms.Button();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.panelContent = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,41 +65,32 @@
             this.panelMenu.Size = new System.Drawing.Size(220, 816);
             this.panelMenu.TabIndex = 1;
             // 
-            // panelContent
+            // btnLogout
             // 
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(220, 0);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1294, 816);
-            this.panelContent.TabIndex = 2;
+            this.btnLogout.Location = new System.Drawing.Point(25, 756);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(139, 35);
+            this.btnLogout.TabIndex = 6;
+            this.btnLogout.Text = "Выход";
+            this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // btnDashboard
+            // btnSettings
             // 
-            this.btnDashboard.Location = new System.Drawing.Point(25, 26);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(139, 23);
-            this.btnDashboard.TabIndex = 0;
-            this.btnDashboard.Text = "Главная";
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnSettings.Location = new System.Drawing.Point(25, 258);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Size = new System.Drawing.Size(139, 23);
+            this.btnSettings.TabIndex = 5;
+            this.btnSettings.Text = "Настройки";
+            this.btnSettings.UseVisualStyleBackColor = true;
             // 
-            // btnEquipment
+            // btnReports
             // 
-            this.btnEquipment.Location = new System.Drawing.Point(25, 116);
-            this.btnEquipment.Name = "btnEquipment";
-            this.btnEquipment.Size = new System.Drawing.Size(139, 23);
-            this.btnEquipment.TabIndex = 1;
-            this.btnEquipment.Text = "Оборудования";
-            this.btnEquipment.UseVisualStyleBackColor = true;
-            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
-            // 
-            // btnRequests
-            // 
-            this.btnRequests.Location = new System.Drawing.Point(25, 72);
-            this.btnRequests.Name = "btnRequests";
-            this.btnRequests.Size = new System.Drawing.Size(139, 23);
-            this.btnRequests.TabIndex = 2;
-            this.btnRequests.Text = "Заявки";
-            this.btnRequests.UseVisualStyleBackColor = true;
+            this.btnReports.Location = new System.Drawing.Point(25, 162);
+            this.btnReports.Name = "btnReports";
+            this.btnReports.Size = new System.Drawing.Size(139, 23);
+            this.btnReports.TabIndex = 4;
+            this.btnReports.Text = "Отчеты";
+            this.btnReports.UseVisualStyleBackColor = true;
             // 
             // btnUsers
             // 
@@ -111,32 +102,42 @@
             this.btnUsers.UseVisualStyleBackColor = true;
             this.btnUsers.Click += new System.EventHandler(this.btnUsers_Click);
             // 
-            // btnReports
+            // btnRequests
             // 
-            this.btnReports.Location = new System.Drawing.Point(25, 162);
-            this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(139, 23);
-            this.btnReports.TabIndex = 4;
-            this.btnReports.Text = "Отчеты";
-            this.btnReports.UseVisualStyleBackColor = true;
+            this.btnRequests.Location = new System.Drawing.Point(25, 72);
+            this.btnRequests.Name = "btnRequests";
+            this.btnRequests.Size = new System.Drawing.Size(139, 23);
+            this.btnRequests.TabIndex = 2;
+            this.btnRequests.Text = "Заявки";
+            this.btnRequests.UseVisualStyleBackColor = true;
+            this.btnRequests.Click += new System.EventHandler(this.btnRequests_Click);
             // 
-            // btnSettings
+            // btnEquipment
             // 
-            this.btnSettings.Location = new System.Drawing.Point(25, 258);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(139, 23);
-            this.btnSettings.TabIndex = 5;
-            this.btnSettings.Text = "Настройки";
-            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnEquipment.Location = new System.Drawing.Point(25, 116);
+            this.btnEquipment.Name = "btnEquipment";
+            this.btnEquipment.Size = new System.Drawing.Size(139, 23);
+            this.btnEquipment.TabIndex = 1;
+            this.btnEquipment.Text = "Оборудования";
+            this.btnEquipment.UseVisualStyleBackColor = true;
+            this.btnEquipment.Click += new System.EventHandler(this.btnEquipment_Click);
             // 
-            // btnLogout
+            // btnDashboard
             // 
-            this.btnLogout.Location = new System.Drawing.Point(25, 756);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(139, 35);
-            this.btnLogout.TabIndex = 6;
-            this.btnLogout.Text = "Выход";
-            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnDashboard.Location = new System.Drawing.Point(25, 26);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(139, 23);
+            this.btnDashboard.TabIndex = 0;
+            this.btnDashboard.Text = "Главная";
+            this.btnDashboard.UseVisualStyleBackColor = true;
+            // 
+            // panelContent
+            // 
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(220, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(1294, 816);
+            this.panelContent.TabIndex = 2;
             // 
             // MainForm
             // 

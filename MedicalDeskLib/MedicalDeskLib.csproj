@@ -110,6 +110,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Data\DbConnectionFactory.cs" />
     <Compile Include="DTO\EquipmentGridDto.cs" />
+    <Compile Include="DTO\RequestGridDto.cs" />
     <Compile Include="DTO\UserGridDto.cs" />
     <Compile Include="Enums\EquipmentStatus.cs" />
     <Compile Include="Enums\RequestStatus.cs" />

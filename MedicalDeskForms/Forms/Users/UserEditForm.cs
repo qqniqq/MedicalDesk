@@ -47,6 +47,8 @@ namespace MedicalDeskForms.Forms.Users
 
             user.Login =
                 txtLogin.Text.Trim();
+            user.Phone =
+    txtPhone.Text.Trim();
 
             user.PasswordHash =
                 PasswordHasher.Hash(

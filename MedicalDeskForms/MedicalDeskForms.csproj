@@ -138,6 +138,9 @@
     <EmbeddedResource Include="Forms\Requests\CreateRequestForm.resx">
       <DependentUpon>CreateRequestForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Requests\RequestListForm.resx">
+      <DependentUpon>RequestListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Users\UserEditForm.resx">
       <DependentUpon>UserEditForm.cs</DependentUpon>
     </EmbeddedResource>

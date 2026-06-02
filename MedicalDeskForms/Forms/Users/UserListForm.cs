@@ -42,7 +42,8 @@ namespace MedicalDeskForms.Forms.Users
 
             dgvUsers.Columns["FullName"].HeaderText =
                 "ФИО";
-
+            dgvUsers.Columns["Phone"].HeaderText =
+                "Телефон";
             dgvUsers.Columns["Login"].HeaderText =
                 "Логин";
 
