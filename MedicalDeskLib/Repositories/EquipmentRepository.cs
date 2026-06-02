@@ -157,5 +157,49 @@ namespace MedicalDeskLib.Repositories
 
             return result;
         }
+        //ПОЛУЧЕНИЕ ОБОРУДОВАНИЯ ДЛЯ COMBOBOX 
+        public Equipment GetById(
+    int id)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                    "SELECT * FROM Equipment WHERE Id=@Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(
+                        query,
+                        connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    id);
+
+                MySqlDataReader reader =
+                    command.ExecuteReader();
+
+                if (!reader.Read())
+                    return null;
+
+                Equipment equipment =
+                    new Equipment();
+
+                equipment.Id =
+                    reader.GetInt32("Id");
+
+                equipment.Name =
+                    reader.GetString("Name");
+
+                return equipment;
+            }
+        }
+
+        public List<Equipment> GetAllSimple()
+        {
+            return GetAll();
+        }
     }
 }
