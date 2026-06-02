@@ -8,14 +8,14 @@ namespace MedicalDeskLib.Helpers
         {
             switch ((UserRole)role)
             {
-                case UserRole.Administrator:
-                    return "Администратор";
+                case UserRole.User:
+                    return "Пользователь";
 
                 case UserRole.Technician:
                     return "Технический специалист";
 
-                case UserRole.User:
-                    return "Пользователь";
+                case UserRole.Administrator:
+                    return "Администратор";
 
                 default:
                     return "";

@@ -109,9 +109,13 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Data\DbConnectionFactory.cs" />
+    <Compile Include="DTO\EquipmentGridDto.cs" />
+    <Compile Include="DTO\UserGridDto.cs" />
     <Compile Include="Enums\EquipmentStatus.cs" />
     <Compile Include="Enums\RequestStatus.cs" />
     <Compile Include="Enums\UserRole.cs" />
+    <Compile Include="Helpers\EquipmentStatusHelper.cs" />
+    <Compile Include="Helpers\RequestStatusHelper.cs" />
     <Compile Include="Helpers\RoleHelper.cs" />
     <Compile Include="Helpers\UserStatusHelper.cs" />
     <Compile Include="Models\Equipment.cs" />
@@ -130,7 +134,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Constants\" />
-    <Folder Include="DTO\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Notifications\" />
     <Folder Include="Reports\" />

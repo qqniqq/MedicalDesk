@@ -25,8 +25,27 @@ namespace MedicalDeskForms.Forms.Equipment
                 new EquipmentRepository();
 
             dgvEquipment.DataSource =
-                repository.GetAll();
+                repository.GetGridData();
+            dgvEquipment.Columns["Id"].HeaderText =
+    "ID";
 
+            dgvEquipment.Columns["Name"].HeaderText =
+                "Наименование";
+
+            dgvEquipment.Columns["Model"].HeaderText =
+                "Модель";
+
+            dgvEquipment.Columns["InventoryNumber"].HeaderText =
+                "Инвентарный номер";
+
+            dgvEquipment.Columns["Location"].HeaderText =
+                "Местоположение";
+
+            dgvEquipment.Columns["Status"].HeaderText =
+                "Статус";
+
+            dgvEquipment.Columns["CreatedAt"].HeaderText =
+                "Дата создания";
         }
 
         private void btnRefreshEquipment_Click(object sender, EventArgs e)

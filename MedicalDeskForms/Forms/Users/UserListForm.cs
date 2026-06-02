@@ -31,10 +31,29 @@ namespace MedicalDeskForms.Forms.Users
         private void LoadUsers()
         {
             UserRepository repository =
-                new UserRepository();
+    new UserRepository();
 
             dgvUsers.DataSource =
-                repository.GetAll();
+
+            repository.GetGridData();
+            
+            dgvUsers.Columns["Id"].HeaderText =
+    "ID";
+
+            dgvUsers.Columns["FullName"].HeaderText =
+                "ФИО";
+
+            dgvUsers.Columns["Login"].HeaderText =
+                "Логин";
+
+            dgvUsers.Columns["Role"].HeaderText =
+                "Роль";
+
+            dgvUsers.Columns["IsActive"].HeaderText =
+                "Активен";
+
+            dgvUsers.Columns["CreatedAt"].HeaderText =
+                "Дата создания";
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

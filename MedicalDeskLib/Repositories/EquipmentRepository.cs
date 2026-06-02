@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using MedicalDeskLib.Data;
+﻿using MedicalDeskLib.Data;
+using MedicalDeskLib.DTO;
+using MedicalDeskLib.Helpers;
 using MedicalDeskLib.Models;
 using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 
 namespace MedicalDeskLib.Repositories
 {
@@ -114,6 +116,46 @@ namespace MedicalDeskLib.Repositories
 
                 command.ExecuteNonQuery();
             }
+        }
+        public List<EquipmentGridDto> GetGridData()
+        {
+            List<EquipmentGridDto> result =
+                new List<EquipmentGridDto>();
+
+            List<Equipment> items =
+                GetAll();
+
+            foreach (Equipment equipment in items)
+            {
+                EquipmentGridDto dto =
+                    new EquipmentGridDto();
+
+                dto.Id =
+                    equipment.Id;
+
+                dto.Name =
+                    equipment.Name;
+
+                dto.Model =
+                    equipment.Model;
+
+                dto.InventoryNumber =
+                    equipment.InventoryNumber;
+
+                dto.Location =
+                    equipment.Location;
+
+                dto.Status =
+                    EquipmentStatusHelper.GetStatusName(
+                        equipment.Status);
+
+                dto.CreatedAt =
+                    equipment.CreatedAt;
+
+                result.Add(dto);
+            }
+
+            return result;
         }
     }
 }

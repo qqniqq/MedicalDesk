@@ -38,19 +38,20 @@
             // 
             this.dgvEquipment.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEquipment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEquipment.Location = new System.Drawing.Point(224, 12);
+            this.dgvEquipment.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dgvEquipment.Location = new System.Drawing.Point(236, 0);
             this.dgvEquipment.Name = "dgvEquipment";
             this.dgvEquipment.ReadOnly = true;
             this.dgvEquipment.RowHeadersWidth = 51;
             this.dgvEquipment.RowTemplate.Height = 24;
             this.dgvEquipment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEquipment.Size = new System.Drawing.Size(1127, 402);
+            this.dgvEquipment.Size = new System.Drawing.Size(1448, 533);
             this.dgvEquipment.TabIndex = 0;
             // 
             // btnAddEquipment
             // 
             this.btnAddEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnAddEquipment.Location = new System.Drawing.Point(68, 12);
+            this.btnAddEquipment.Location = new System.Drawing.Point(12, 12);
             this.btnAddEquipment.Name = "btnAddEquipment";
             this.btnAddEquipment.Size = new System.Drawing.Size(108, 37);
             this.btnAddEquipment.TabIndex = 1;
@@ -61,7 +62,7 @@
             // btnRefreshEquipment
             // 
             this.btnRefreshEquipment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnRefreshEquipment.Location = new System.Drawing.Point(68, 55);
+            this.btnRefreshEquipment.Location = new System.Drawing.Point(12, 55);
             this.btnRefreshEquipment.Name = "btnRefreshEquipment";
             this.btnRefreshEquipment.Size = new System.Drawing.Size(108, 37);
             this.btnRefreshEquipment.TabIndex = 2;
@@ -73,7 +74,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1439, 450);
+            this.ClientSize = new System.Drawing.Size(1684, 533);
             this.Controls.Add(this.btnRefreshEquipment);
             this.Controls.Add(this.btnAddEquipment);
             this.Controls.Add(this.dgvEquipment);

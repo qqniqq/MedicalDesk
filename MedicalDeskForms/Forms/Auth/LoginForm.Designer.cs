@@ -75,13 +75,14 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.Color.RoyalBlue;
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnLogin.Location = new System.Drawing.Point(221, 191);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(136, 39);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Войти";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblError
@@ -99,6 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(539, 337);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnLogin);
@@ -106,8 +108,9 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtLogin);
             this.Controls.Add(this.lblLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Авторизация";
             this.ResumeLayout(false);
             this.PerformLayout();
 

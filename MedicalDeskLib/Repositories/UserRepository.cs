@@ -2,6 +2,9 @@
 using MedicalDeskLib.Data;
 using MedicalDeskLib.Models;
 using MySql.Data.MySqlClient;
+using System.Linq;
+using MedicalDeskLib.DTO;
+using MedicalDeskLib.Helpers;
 
 namespace MedicalDeskLib.Repositories
 {
@@ -161,6 +164,43 @@ namespace MedicalDeskLib.Repositories
                 command.ExecuteNonQuery();
             }
         }
+        //метод для грида
+        public List<UserGridDto> GetGridData()
+        {
+            List<UserGridDto> result =
+                new List<UserGridDto>();
 
+            List<User> users =
+                GetAll();
+
+            foreach (User user in users)
+            {
+                UserGridDto item =
+                    new UserGridDto();
+
+                item.Id =
+                    user.Id;
+
+                item.FullName =
+                    user.FullName;
+
+                item.Login =
+                    user.Login;
+
+                item.Role =
+                    RoleHelper.GetRoleName(
+                        user.Role);
+
+                item.IsActive =
+                    user.IsActive;
+
+                item.CreatedAt =
+                    user.CreatedAt;
+
+                result.Add(item);
+            }
+
+            return result;
+        }
     }
 }

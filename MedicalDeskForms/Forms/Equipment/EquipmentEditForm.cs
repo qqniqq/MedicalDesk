@@ -21,11 +21,13 @@ namespace MedicalDeskForms.Forms.Equipment
         {
             InitializeComponent();
 
-            cmbStatus.DataSource =
-      Enum.GetValues(
-          typeof(EquipmentStatus));
+            cmbStatus.Items.Clear();
 
+            cmbStatus.Items.Add("Работает");
+            cmbStatus.Items.Add("На ремонте");
+            cmbStatus.Items.Add("Списано");
 
+            cmbStatus.SelectedIndex = 0;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -58,9 +60,27 @@ namespace MedicalDeskForms.Forms.Equipment
             equipment.Location =
                 txtLocation.Text.Trim();
 
-            equipment.Status =
-                (int)cmbStatus.SelectedItem;
+            if (cmbStatus.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Выберите статус оборудования");
 
+                return;
+            }
+            switch (cmbStatus.SelectedIndex)
+            {
+                case 0:
+                    equipment.Status = 1;
+                    break;
+
+                case 1:
+                    equipment.Status = 2;
+                    break;
+
+                case 2:
+                    equipment.Status = 3;
+                    break;
+            }
             equipment.CreatedAt =
                 DateTime.Now;
 
