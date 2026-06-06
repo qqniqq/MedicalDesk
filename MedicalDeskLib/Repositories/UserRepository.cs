@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using MedicalDeskLib.Data;
-using MedicalDeskLib.Models;
-using MySql.Data.MySqlClient;
-using System.Linq;
+﻿using MedicalDeskLib.Data;
 using MedicalDeskLib.DTO;
 using MedicalDeskLib.Helpers;
+using MedicalDeskLib.Models;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MedicalDeskLib.Repositories
 {
@@ -48,6 +49,8 @@ namespace MedicalDeskLib.Repositories
 
                     user.IsActive =
                         reader.GetBoolean("IsActive");
+                    user.CreatedAt =
+                        reader.GetDateTime("CreatedAt");
 
                     users.Add(user);
                 }
@@ -114,6 +117,34 @@ namespace MedicalDeskLib.Repositories
                     user.IsActive);
 
                 command.ExecuteNonQuery();
+                
+            }
+        }
+        //логин уже существует?
+        public bool LoginExists(string login)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                    "SELECT COUNT(*) FROM Users WHERE Login=@Login";
+
+                MySqlCommand command =
+                    new MySqlCommand(
+                        query,
+                        connection);
+
+                command.Parameters.AddWithValue(
+                    "@Login",
+                    login);
+
+                int count =
+                    Convert.ToInt32(
+                        command.ExecuteScalar());
+
+                return count > 0;
             }
         }
         public void SetActive(int userId, bool isActive)
@@ -210,6 +241,138 @@ namespace MedicalDeskLib.Repositories
             }
 
             return result;
+        }
+
+        public User GetById(int id)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                    "SELECT * FROM Users WHERE Id=@Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(
+                        query,
+                        connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    id);
+
+                MySqlDataReader reader =
+                    command.ExecuteReader();
+
+                if (!reader.Read())
+                {
+                    return null;
+                }
+
+                User user =
+                    new User();
+
+                user.Id =
+                    reader.GetInt32("Id");
+
+                user.FullName =
+                    reader["FullName"].ToString();
+
+                user.Phone =
+                    reader["Phone"].ToString();
+
+                user.Login =
+                    reader["Login"].ToString();
+
+                user.Role =
+                    reader.GetInt32("Role");
+
+                user.IsActive =
+                    Convert.ToBoolean(
+                        reader["IsActive"]);
+
+                return user;
+            }
+        }
+        public void Update(User user)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                @"UPDATE Users
+          SET
+            FullName=@FullName,
+            Phone=@Phone,
+            Login=@Login,
+            Role=@Role,
+            IsActive=@IsActive
+          WHERE Id=@Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(
+                        query,
+                        connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    user.Id);
+
+                command.Parameters.AddWithValue(
+                    "@FullName",
+                    user.FullName);
+
+                command.Parameters.AddWithValue(
+                    "@Phone",
+                    user.Phone);
+
+                command.Parameters.AddWithValue(
+                    "@Login",
+                    user.Login);
+
+                command.Parameters.AddWithValue(
+                    "@Role",
+                    user.Role);
+
+                command.Parameters.AddWithValue(
+                    "@IsActive",
+                    user.IsActive);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        public void ChangePassword(
+    int userId,
+    string passwordHash)
+        {
+            using (MySqlConnection connection =
+                DbConnectionFactory.CreateConnection())
+            {
+                connection.Open();
+
+                string query =
+                @"UPDATE Users
+          SET PasswordHash=@PasswordHash
+          WHERE Id=@Id";
+
+                MySqlCommand command =
+                    new MySqlCommand(
+                        query,
+                        connection);
+
+                command.Parameters.AddWithValue(
+                    "@Id",
+                    userId);
+
+                command.Parameters.AddWithValue(
+                    "@PasswordHash",
+                    passwordHash);
+
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

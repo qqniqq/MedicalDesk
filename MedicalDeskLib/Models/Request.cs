@@ -11,7 +11,10 @@ namespace MedicalDeskLib.Models
         public DateTime CreatedAt { get; set; }
         public DateTime? ClosedAt { get; set; }
         public int UserId { get; set; }
-        public int EquipmentId { get; set; }
         public int? TechnicianId { get; set; }
+        public string Room { get; set; }
+        public string ApplicantName { get; set; }
+        public string ApplicantPhone { get; set; }
+        public string RequestType { get; set; }
     }
 }

@@ -24,21 +24,27 @@ namespace MedicalDeskLib.Repositories
                 @"INSERT INTO Requests
         (
             RequestNumber,
+            Room,
+            ApplicantName,
+            ApplicantPhone,
+            RequestType,
             Description,
             Status,
             CreatedAt,
             UserId,
-            EquipmentId,
             TechnicianId
         )
         VALUES
         (
             @RequestNumber,
+            @Room,
+            @ApplicantName,
+            @ApplicantPhone,
+            @RequestType,
             @Description,
             @Status,
             @CreatedAt,
             @UserId,
-            @EquipmentId,
             @TechnicianId
         )";
 
@@ -50,6 +56,22 @@ namespace MedicalDeskLib.Repositories
                 command.Parameters.AddWithValue(
                     "@RequestNumber",
                     request.RequestNumber);
+
+                command.Parameters.AddWithValue(
+                    "@Room",
+                    request.Room);
+
+                command.Parameters.AddWithValue(
+                    "@ApplicantName",
+                    request.ApplicantName);
+
+                command.Parameters.AddWithValue(
+                    "@ApplicantPhone",
+                    request.ApplicantPhone);
+
+                command.Parameters.AddWithValue(
+                    "@RequestType",
+                    request.RequestType);
 
                 command.Parameters.AddWithValue(
                     "@Description",
@@ -66,10 +88,6 @@ namespace MedicalDeskLib.Repositories
                 command.Parameters.AddWithValue(
                     "@UserId",
                     request.UserId);
-
-                command.Parameters.AddWithValue(
-                    "@EquipmentId",
-                    request.EquipmentId);
 
                 command.Parameters.AddWithValue(
                     "@TechnicianId",
@@ -127,10 +145,17 @@ namespace MedicalDeskLib.Repositories
                     request.UserId =
                         reader.GetInt32(
                             "UserId");
+                    request.Room =
+    reader["Room"].ToString();
 
-                    request.EquipmentId =
-                        reader.GetInt32(
-                            "EquipmentId");
+                    request.ApplicantName =
+                        reader["ApplicantName"].ToString();
+
+                    request.ApplicantPhone =
+                        reader["ApplicantPhone"].ToString();
+
+                    request.RequestType =
+                        reader["RequestType"].ToString();
 
                     if (!reader.IsDBNull(
                         reader.GetOrdinal(

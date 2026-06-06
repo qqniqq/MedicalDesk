@@ -58,7 +58,8 @@ namespace MedicalDeskLib.Services
 
                 user.FullName =
                     reader["FullName"].ToString();
-
+                user.Phone =
+    reader["Phone"].ToString();
                 user.Role =
                     (int)reader["Role"];
 

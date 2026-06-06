@@ -36,6 +36,9 @@ namespace MedicalDeskForms.Forms.Users
             dgvUsers.DataSource =
 
             repository.GetGridData();
+            dgvUsers.Columns["CreatedAt"]
+     .DefaultCellStyle.Format =
+     "dd.MM.yyyy HH:mm";
             
             dgvUsers.Columns["Id"].HeaderText =
     "ID";
@@ -112,6 +115,29 @@ namespace MedicalDeskForms.Forms.Users
 
             MessageBox.Show(
                 "Пароль сброшен на 123456");
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.CurrentRow == null)
+            {
+                MessageBox.Show(
+                    "Выберите пользователя");
+
+                return;
+            }
+
+            int userId =
+                Convert.ToInt32(
+                    dgvUsers.CurrentRow.Cells["Id"].Value);
+
+            UserEditForm form =
+                new UserEditForm(
+                    userId);
+
+            form.ShowDialog();
+
+            LoadUsers();
         }
     }
 }

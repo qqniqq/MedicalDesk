@@ -20,38 +20,93 @@ namespace MedicalDeskForms.Forms.Requests
         public CreateRequestForm()
         {
             InitializeComponent();
-            LoadEquipment();
-        }
-        private void LoadEquipment()
-        {
-            EquipmentRepository repository =
-                new EquipmentRepository();
+            
+            cmbRequestType.Items.Add(
+    "Компьютер");
 
-            cmbEquipment.DataSource =
-                repository.GetAllSimple();
+            cmbRequestType.Items.Add(
+                "Принтер");
 
-            cmbEquipment.DisplayMember =
-                "Name";
+            cmbRequestType.Items.Add(
+                "МФУ");
 
-            cmbEquipment.ValueMember =
-                "Id";
-        }
+            cmbRequestType.Items.Add(
+                "Ноутбук");
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (cmbEquipment.SelectedValue == null)
+            cmbRequestType.Items.Add(
+                "Интернет");
+
+            cmbRequestType.Items.Add(
+                "Сеть");
+
+            cmbRequestType.Items.Add(
+                "Программное обеспечение");
+
+            cmbRequestType.Items.Add(
+                "Телефон");
+
+            cmbRequestType.Items.Add(
+                "Другое");
+            //АВТОЗАПОЛНЕНИЕ
+            if (SessionManager.CurrentUser.Role == 1)
             {
-                MessageBox.Show(
-                    "Выберите оборудование");
+                txtApplicantName.Text =
+                    SessionManager.CurrentUser.FullName;
 
-                return;
+                txtApplicantPhone.Text =
+                    SessionManager.CurrentUser.Phone;
+
+                txtApplicantName.ReadOnly = true;
+                txtApplicantPhone.ReadOnly = true;
             }
+        }
+
+
+        private void btnCreateRequest_Click(object sender, EventArgs e)
+        {
+
 
             if (string.IsNullOrWhiteSpace(
                 txtDescription.Text))
             {
                 MessageBox.Show(
                     "Введите описание проблемы");
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(
+    txtRoom.Text))
+            {
+                MessageBox.Show(
+                    "Введите кабинет");
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(
+                txtApplicantName.Text))
+            {
+                MessageBox.Show(
+                    "Введите заявителя");
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(
+                txtApplicantPhone.Text))
+            {
+                MessageBox.Show(
+                    "Введите телефон");
+
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(
+                cmbRequestType.Text))
+            {
+                MessageBox.Show(
+                    "Выберите тип обращения");
 
                 return;
             }
@@ -69,6 +124,18 @@ namespace MedicalDeskForms.Forms.Requests
                 RequestNumberGenerator
                 .Generate(nextId);
 
+            request.Room =
+    txtRoom.Text.Trim();
+
+            request.ApplicantName =
+                txtApplicantName.Text.Trim();
+
+            request.ApplicantPhone =
+                txtApplicantPhone.Text.Trim();
+
+            request.RequestType =
+                cmbRequestType.Text;
+
             request.Description =
                 txtDescription.Text.Trim();
 
@@ -83,9 +150,6 @@ namespace MedicalDeskForms.Forms.Requests
                 .CurrentUser
                 .Id;
 
-            request.EquipmentId =
-                Convert.ToInt32(
-                    cmbEquipment.SelectedValue);
 
             request.TechnicianId =
                 null;
